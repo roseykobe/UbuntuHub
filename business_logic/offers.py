@@ -5,7 +5,7 @@ class Offers:
     def __init__(self):
         
         self.reviews= [
-            {"helper_id": 1, "reviewer_id": 66, "stars": 5, "comment": "Explained fractions so well."},
+            {"helper_id": 1, "reviewer_id": 66, "stars": 5, "comment": "My son's grades have improved drastically under her hands."},
             {"helper_id": 1, "reviewer_id": 67, "stars": 4, "comment": "Always on time."},
             {"helper_id": 2, "reviewer_id": 68, "stars": 5, "comment": ""},
         ]
@@ -21,7 +21,15 @@ class Offers:
             "repairs": {"name": "Repairs", "icon": ft.Icons.BUILD, "color": ft.Colors.DEEP_ORANGE},
             "charging": {"name": "Phone Charging", "icon": ft.Icons.BATTERY_CHARGING_FULL, "color": ft.Colors.YELLOW_800},
             "sewing": {"name": "Sewing & Repairs", "icon": ft.Icons.TEXTURE, "color": ft.Colors.PINK_200},
-            "rides": {"name": "Rides & Delivery", "icon": ft.Icons.DIRECTIONS_BIKE, "color": ft.Colors.BLUE_600}
+            "rides": {"name": "Rides & Delivery", "icon": ft.Icons.DIRECTIONS_BIKE, "color": ft.Colors.BLUE_600},
+            "cv": {"name": "CV & job Application Help", "icon": ft.Icons.DESCRIPTION, "color": ft.Colors.INDIGO_400},
+            "photography": {"name": "Photography", "icon": ft.Icons.CAMERA_ALT, "color": ft.Colors.DEEP_PURPLE_300},
+            "tech": {"name": "Tech Help", "icon": ft.Icons.DEVICES, "color": ft.Colors.BLUE_400},
+            "cleaning": {"name": "Cleaning", "icon": ft.Icons.CLEANING_SERVICES, "color": ft.Colors.TEAL_400},
+            "makeup": {"name": "Makeup", "icon": ft.Icons.FACE, "color": ft.Colors.ORANGE_300},
+            "nails": {"name": "Nails", "icon": ft.Icons.BACK_HAND, "color": ft.Colors.PINK_200},
+            "music": {"name": "Music & Arts", "icon": ft.Icons.MUSIC_NOTE, "color": ft.Colors.PURPLE_300},
+            "welding": {"name": "Welding", "icon": ft.Icons.HARDWARE, "color": ft.Colors.GREY_500},
         }
 
         self.free_categories= {
@@ -33,7 +41,15 @@ class Offers:
             "furniture": {"name": "Furniture", "icon": ft.Icons.CHAIR, "color": ft.Colors.BROWN_300},
             "electronics": {"name": "Electronics", "icon": ft.Icons.DEVICE_UNKNOWN, "color": ft.Colors.PURPLE_300},
             "kids": {"name": "Baby & Kids", "icon": ft.Icons.BABY_CHANGING_STATION, "color": ft.Colors.PINK_200},
-            "tutoring": {"name": "Tutoring", "icon": ft.Icons.BOOK, "color": ft.Colors.RED},
+            "cooking": {"name": "Baking & Cooking", "icon": ft.Icons.SOUP_KITCHEN, "color": ft.Colors.AMBER_600},
+            "cv": {"name": "CV & Job Application", "icon": ft.Icons.DESCRIPTION, "color": ft.Colors.INDIGO_400},
+            "photography": {"name": "Photography", "icon": ft.Icons.CAMERA_ALT, "color": ft.Colors.DEEP_PURPLE_300},
+            "hair": {"name": "Hair & Grooming", "icon": ft.Icons.CONTENT_CUT, "color": ft.Colors.ORANGE},
+            "makeup": {"name": "Makeup", "icon": ft.Icons.FACE, "color": ft.Colors.DEEP_ORANGE_300},
+            "nails": {"name": "Nails", "icon": ft.Icons.BACK_HAND, "color": ft.Colors.PINK_200},
+            #"welding": {"name": "Welding", "icon": ft.Icons.BOOK, "color": ft.Colors.RED},
+            "music": {"name": "Music & Arts", "icon": ft.Icons.MUSIC_NOTE, "color": ft.Colors.PURPLE_300},
+
         }
 
         self.users= {
@@ -256,113 +272,197 @@ class Offers:
             "title": "Clinic drop-off & back",
             "mentorship": False
             },
+            {"offer_id":38, "helper_id":37, "category": "cv",
+                        "title": "I can write a CV for you, R100",
+                        "mentorship": False
+                        },
+            {"offer_id":39, "helper_id":37, "category": "cv",
+                        "title": "Job application pack (CV + Cover letter), R150",
+                        "mentorship": False
+                        },
+            {"offer_id":40, "helper_id":37, "category": "photography",
+                        "title": "Event photos, R250 for 2hrs",
+                        "mentorship": False
+                        },
+            {"offer_id":41, "helper_id":37, "category": "cleaning",
+                        "title": "Deep cleaning, from R250",
+                        "mentorship": False
+                        },
+            {"offer_id":42, "helper_id":37, "category": "tech",
+                        "title": "I help small businesses set up their systems",
+                        "mentorship": False
+                        },
+            {"offer_id":43, "helper_id":37, "category": "makeup",
+                        "title": "Soft glam R250, full glam R350, Bridal R600",
+                        "mentorship": True
+                        },
+            {"offer_id":43, "helper_id":37, "category": "nails",
+                                    "title": "Plain set: R100-R180, French set: R150-R230",
+                                    "mentorship": False
+                                    },
+            {"offer_id":43, "helper_id":37, "category": "nails",
+                                    "title": "Acrylic | Gel | French | Designs",
+                                    "mentorship": True
+                                    },
+            {"offer_id":43, "helper_id":37, "category": "makeup",
+                                    "title": "Soft glam R250, full glam R350, Bridal R600",
+                                    "mentorship": True
+                                    },
+            {"offer_id":43, "helper_id":37, "category": "music",
+                                                "title": "music workshop for youth, R350 per session",
+                                                "mentorship": True
+                                                },
+            {"offer_id":43, "helper_id":37, "category": "welding",
+                                                "title": "Soft glam R250, full glam R350, Bridal R600",
+                                                "mentorship": True
+                                                },
             
         ]
         self.free_offers= [
-            {"offer_id":38, "helper_id":38, "category": "clothes",
+            {"offer_id":1, "helper_id":38, "category": "clothes",
                          "title": "giving away size 30 men's gray pants, still in good shape",
                          "mentorship": False
                         },
-                        {"offer_id":39, "helper_id":39, "category": "clothes",
+                        {"offer_id":2, "helper_id":39, "category": "clothes",
                         "title": "3 dresses, size M, all worn once",
                         "mentorship": False
                                     },
-                        {"offer_id":40, "helper_id":40, "category": "clothes",
+                        {"offer_id":3, "helper_id":40, "category": "clothes",
                         "title": "tekkies, size 6, ladies, almost new",
                         "mentorship": False
                                     },
-                        {"offer_id":41, "helper_id":41, "category": "clothes",
+                        {"offer_id":4, "helper_id":41, "category": "clothes",
                         "title": "Winter jacket, men's large, warm & clean",
                         "mentorship": False
                                     },
-                        {"offer_id":42, "helper_id":42, "category": "clothes",
+                        {"offer_id":5, "helper_id":42, "category": "clothes",
                         "title": "a few jeans, ladies, size 32, good condition",
                         "mentorship": False
                                     },
-                        {"offer_id":43, "helper_id":43, "category": "food",
+                        {"offer_id":6, "helper_id":43, "category": "food",
                         "title": " 2kg rice, unopened",
                         "mentorship": False
                                                 },
-                        {"offer_id":44, "helper_id":44, "category": "food",
+                        {"offer_id":7, "helper_id":44, "category": "food",
                         "title": "10kg unopened maize meal for someone who needs it",
                         "mentorship": False
                                                 },
-                        {"offer_id":45, "helper_id":45, "category": "food",
+                        {"offer_id":8, "helper_id":45, "category": "food",
                         "title": "tinned pilchards, 3 cans",
                         "mentorship": False
                                                 },
-                        {"offer_id":46, "helper_id":46, "category": "toiletries",
+                        {"offer_id":9, "helper_id":46, "category": "toiletries",
                         "title": "sanitary pads, 2 packs, still sealed",
                         "mentorship": False
                                                 },
-                        {"offer_id":47, "helper_id":47, "category": "toiletries",
+                        {"offer_id":10, "helper_id":47, "category": "toiletries",
                         "title": "soap, lotion, roll-on, for anyone in need",
                         "mentorship": False
                                                 },
-                        {"offer_id":48, "helper_id":48, "category": "toiletries",
+                        {"offer_id":11, "helper_id":48, "category": "toiletries",
                         "title": "toiletries pack",
                         "mentorship": False
                                                 },
-                        {"offer_id":49, "helper_id":49, "category": "toiletries",
+                        {"offer_id":12, "helper_id":49, "category": "toiletries",
                         "title": "pack of pads, unopened",
                         "mentorship": False
                                                 },
-                        {"offer_id":50, "helper_id":50, "category": "school",
+                        {"offer_id":13, "helper_id":50, "category": "school",
                         "title": "2 quire notebooks",
                         "mentorship": False
                                                 },
-                        {"offer_id":51, "helper_id":51, "category": "school",
+                        {"offer_id":14, "helper_id":51, "category": "school",
                         "title": "pens, pencils, books, crayons (all new)",
                         "mentorship": False
                                                 },
-                        {"offer_id":52, "helper_id":52, "category": "school",
+                        {"offer_id":15, "helper_id":52, "category": "school",
                         "title": "girls' school shoes, size 5, still in good shape",
                         "mentorship": False
                                                 },
-                        {"offer_id":53, "helper_id":53, "category": "school",
+                        {"offer_id":15, "helper_id":53, "category": "school",
                         "title": "school bag (new)",
                         "mentorship": False
                                                 },
-                        {"offer_id":54, "helper_id":54, "category": "appliances",
+                        {"offer_id":16, "helper_id":54, "category": "appliances",
                         "title": "Fridge, good condition",
                         "mentorship": False
                                                 },
-                        {"offer_id":55, "helper_id":55, "category": "appliances",
+                        {"offer_id":17, "helper_id":55, "category": "appliances",
                         "title": "microwave, 20L, works fine, just replacing it",
                         "mentorship": False
                                                 },
-                        {"offer_id":56, "helper_id":56, "category": "appliances",
+                        {"offer_id":18, "helper_id":56, "category": "appliances",
                         "title": "kettle & iron",
                         "mentorship": False
                                                 },
-                        {"offer_id":57, "helper_id":57, "category": "furniture",
+                        {"offer_id":19, "helper_id":57, "category": "furniture",
                         "title": "3 seater couch, good condition",
                         "mentorship": False
                                                 },
-                        {"offer_id":58, "helper_id":58, "category": "furniture",
+                        {"offer_id":20, "helper_id":58, "category": "furniture",
                         "title": "wardrobe, 2 door",
                         "mentorship": False
                                                 },
-                        {"offer_id":59, "helper_id":59, "category": "electronics",
+                        {"offer_id":21, "helper_id":59, "category": "electronics",
                         "title": "Samsung A05, working, no cracks",
                         "mentorship": False
                                                 },
-                        {"offer_id":60, "helper_id":60, "category": "electronics",
+                        {"offer_id":22, "helper_id":60, "category": "electronics",
                         "title": "32 inch TV, working fine",
                         "mentorship": False
                                                 },
-                        {"offer_id":61, "helper_id":61, "category": "kids",
+                        {"offer_id":23, "helper_id":61, "category": "kids",
                         "title": "nappies, small pack, unopened",
                         "mentorship": False
                                                 },
-                        {"offer_id":62, "helper_id":62, "category": "kids",
+                        {"offer_id":24, "helper_id":62, "category": "kids",
                         "title": "baby formula, unopened, 1 tin",
                         "mentorship": False
                                                 },
-                        {"offer_id":63, "helper_id":63, "category": "tutoring",
+                        {"offer_id":25, "helper_id":63, "category": "tutoring",
                         "title": "Free tutoring, Gr8-9 Maths",
                         "mentorship": True
                                                 },
+                        {"offer_id":26, "helper_id":63, "category": "cooking",
+                        "title": "I can assist with cooking at your event. Still learning, happy to help prep",
+                        "mentorship": False
+                                        },
+                        {"offer_id":27, "helper_id":63, "category": "cv",
+                        "title": "I can help you write a CV from scratch",
+                        "mentorship": False
+                                    },
+                        {"offer_id":28, "helper_id":63, "category": "photography",
+                        "title": "Matric dance shoots. ",
+                        "mentorship": True
+                                               },
+                        {"offer_id":28, "helper_id":63, "category": "photography",
+                        "title": "would like to assist a photographer at their shoots, to learn. I'll carry gear & help set up",
+                        "mentorship": False
+                            },
+                        {"offer_id":28, "helper_id":63, "category": "hair",
+                        "title": "knotless braids and cornrows, still learning. Bring your own fibre",
+                        "mentorship": False
+                                },
+                        {"offer_id":28, "helper_id":63, "category": "makeup",
+                        "title": "would like to assist a MUA on shoots, still learning,",
+                        "mentorship": False
+                                    },
+                        {"offer_id":28, "helper_id":63, "category": "nails",
+                        "title": "can do basic manicure, beginner.",
+                        "mentorship": False
+                            },
+                        {"offer_id":28, "helper_id":63, "category": "music",                                  
+                        "title": "can play keyboard or guitar",
+                        "mentorship": True
+                                  },
+                        {"offer_id":28, "helper_id":63, "category": "music",                                  
+                        "title": "I can lead worship at youth events",
+                        "mentorship": False
+                                },
+                        {"offer_id":28, "helper_id":63, "category": "music",                                  
+                        "title": "can play keyboard or guitar",
+                        "mentorship": True
+                                },
                         
         ]
         self.new_offers= []
@@ -389,6 +489,14 @@ class Offers:
             cat = "charging"
         if "sewing" in cat:
             cat= "sewing"
+        if "cv" in cat:
+            cat= "cv"
+        if "tech" in cat:
+            cat= "tech"
+        if "music" in cat:
+            cat= "music"
+        
+
             
 
         new_offer= {
@@ -416,6 +524,14 @@ class Offers:
             cat = "school"
         if "kids" in cat:
             cat = "kids"
+        if "cooking" in cat:
+            cat= "cooking"
+        if "cv" in cat:
+            cat= "cv"
+        if "hair" in cat:
+            cat= "hair"
+        if "music" in cat:
+            cat= "music"
 
         new_offer= {
             "offer_id": new_id,

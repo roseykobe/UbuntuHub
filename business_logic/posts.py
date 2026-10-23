@@ -357,7 +357,7 @@ class newPostCard(ft.Container):
     
                                 controls= [ ft.Row(
                                            controls= [
-                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD),
+                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD, size= 16),
                                     ft.Icon(ft.Icons.VERIFIED, size= 16, color= ft.Colors.ORANGE_200),
                                 ],
                                 spacing= 6,
@@ -393,7 +393,7 @@ class newPostCard(ft.Container):
                                 margin= 10, 
                                 content= ft.Text(
                                     f"{self.request}",
-                                    size=14, 
+                                    size=16, 
                                     weight= ft.FontWeight.W_400,
                                 ),
                             ),
@@ -408,7 +408,7 @@ class newPostCard(ft.Container):
                                 vertical_alignment= ft.CrossAxisAlignment.CENTER,
                                 controls=[
                                     ft.Row( controls= [
-                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD),
+                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD, size= 16),
                                     self.helped_tag,
                                     ],
                                     spacing= 6
@@ -442,7 +442,7 @@ class newPostCard(ft.Container):
                                 margin= 10, 
                                 content= ft.Text(
                                     f"{self.request}",
-                                    size=14, 
+                                    size=16, 
                                     weight= ft.FontWeight.W_400,
                                 ),
                             ),
@@ -572,8 +572,8 @@ class PostCard(ft.Container):
                         controls= [
                             ft.Row(
                                 controls=[
-                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD),
-                                    ft.Icon(ft.Icons.VERIFIED, size= 16, color= ft.Colors.ORANGE_200),
+                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD, size=16),
+                                    ft.Icon(ft.Icons.VERIFIED, size= 16, color= ft.Colors.BLUE_50),
                                     self.helped_tag,
                                 ],
                                 spacing= 6,
@@ -590,7 +590,7 @@ class PostCard(ft.Container):
                                 margin= 10, 
                                 content= ft.Text(
                                     f"{self.request}",
-                                    size=14, 
+                                    size=16, 
                                     weight= ft.FontWeight.W_400,
                                 ),
                             ),
@@ -602,7 +602,7 @@ class PostCard(ft.Container):
                         controls= [
                             ft.Row(
                                 controls=[
-                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD),
+                                    ft.Text(f"{self.name}", weight= ft.FontWeight.BOLD, size= 16),
                                     self.helped_tag,
                                 ],
                                 spacing= 6,
@@ -619,7 +619,7 @@ class PostCard(ft.Container):
                                 margin= 10, 
                                 content= ft.Text(
                                     f"{self.request}",
-                                    size=14, 
+                                    size=16, 
                                     weight= ft.FontWeight.W_400,
                                 ),
                             ),

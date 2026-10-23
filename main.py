@@ -4,7 +4,7 @@ from views.login_view import login
 from views.home_view import home
 #from views.find_help_view import find_help
 from views.find_help_view import find_help
-from views.get_paid_view import get_paid
+from views.offer_help_view import get_paid
 
 from views.post_form_view import post_form
 from views.inbox_view import inbox

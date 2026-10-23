@@ -224,7 +224,7 @@ def get_paid (page: ft.Page, offers: Offers):
                 subtitle=ft.Text(
                     f"{subt} ",
                     size=12,
-                    color=ft.Colors.GREY_600,
+                    color=ft.Colors.GREY_700,
                 ),
                 controls=[make_item(i, c, n, t) for i, c, n, t in items],
             ),
@@ -243,6 +243,14 @@ def get_paid (page: ft.Page, offers: Offers):
         (ft.Icons.BATTERY_CHARGING_FULL, ft.Colors.YELLOW_800, "Phone Charging", "p"),
         (ft.Icons.TEXTURE, ft.Colors.PINK_200, "Sewing & Repairs", "p"),
         (ft.Icons.DIRECTIONS_BIKE, ft.Colors.BLUE_600, "Rides & Delivery", "p"),
+        (ft.Icons.DESCRIPTION, ft.Colors.INDIGO_400, "CV & Job Application", "p"),
+        (ft.Icons.CAMERA_ALT, ft.Colors.DEEP_PURPLE_300, "Photography", "p"),
+        (ft.Icons.DEVICES, ft.Colors.BLUE_400, "Tech Help", "p"),
+        (ft.Icons.CLEANING_SERVICES, ft.Colors.TEAL_400, "Cleaning", "p"),
+        (ft.Icons.FACE, ft.Colors.ORANGE_300, "Makeup", "p"),
+        (ft.Icons.BACK_HAND, ft.Colors.PINK_200, "Nails", "p"),
+        (ft.Icons.MUSIC_NOTE, ft.Colors.PURPLE_300, "Music & Arts", "p"),
+        (ft.Icons.HARDWARE, ft.Colors.GREY_500, "Welding", "p"),
     ]
 
     free_services = [
@@ -254,7 +262,14 @@ def get_paid (page: ft.Page, offers: Offers):
         (ft.Icons.CHAIR, ft.Colors.BROWN_300, "Furniture", "f"),
         (ft.Icons.DEVICE_UNKNOWN, ft.Colors.PURPLE_300, "Electronics", "f"),
         (ft.Icons.BABY_CHANGING_STATION, ft.Colors.PINK_200, "Baby & Kids", "f"),
+        (ft.Icons.SOUP_KITCHEN, ft.Colors.AMBER_600, "Baking & Cooking", "f"),
+        (ft.Icons.DESCRIPTION, ft.Colors.INDIGO_400, "CV & Job Application", "f"),
         (ft.Icons.BOOK, ft.Colors.RED, "Tutoring", "f"),
+        (ft.Icons.CAMERA_ALT, ft.Colors.DEEP_PURPLE_300, "Photography", "f"),
+        (ft.Icons.CONTENT_CUT, ft.Colors.ORANGE, "Hair & Grooming", "f"),
+        (ft.Icons.FACE, ft.Colors.DEEP_ORANGE_300, "Makeup", "f"),
+        (ft.Icons.BACK_HAND, ft.Colors.PINK_200, "Nails", "f"),
+        (ft.Icons.MUSIC_NOTE, ft.Colors.PURPLE_300, "Music & Arts", "f"),
     ]
 
     return ft.View(
