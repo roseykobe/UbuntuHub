@@ -54,9 +54,9 @@ class Offers:
 
         self.users= {
             1: {"name": "Dimpho Makofane", "verified": True, "ratings": [4,3.5, 5, 4.2, 4.8, 4.9, 3.8, 4, 4.6, 4.2, 5], "bio": "Gr12 Maths and Science Tutor\nTests, homework & exam prep\nonline & physical"},
-            2: {"name": "Mandla Sibanda", "verified": False, "ratings": [3.5, 3.2, 4.2, 4.6, 3.8]},
-            3: {"name": "Nomsa", "verified": False, "ratings": [4,3.5, 4.2, 4.8]},
-            4: {"name": "David Kamo", "verified": True, "ratings": [4, 3.5, 5, 4.2, 4.8, 4.9, 4.8, 4.2, 4.5], "bio": "Making Natural Science fun & easy\nGrades 4-9|CAPS aligned"},
+            2: {"name": "Mandla Sibanda", "verified": False, "ratings": [3, 2, 4, 4, 3]},
+            3: {"name": "Nomsa", "verified": False, "ratings": []},
+            4: {"name": "David Kamo", "verified": True, "ratings": [4, 3, 5, 4, 4, 4, 3, 3, 4], "bio": "Making Natural Science fun & easy\nGrades 4-9|CAPS aligned"},
             5: {"name": "Kearabetswe", "verified": True, "ratings": [4,3.5, 4.2, 3.8]},
             6: {"name": "Sanele", "verified": False, "ratings": [4,3.5, 5, 4.2, 4.8, 4.9, 3.8], "bio": "Barber| Fades, Tapers, & Lineups"},
             7: {"name": "Tebogo (Oupa)", "verified": True, "ratings": [4,3.5, 4.2, 4.8, 3.8]},
@@ -70,7 +70,7 @@ class Offers:
             15: {"name": "Cindy M", "verified": True, "ratings": [4,3.5, 5, 4.2, 4.8, 4.6, 3.8, 4, 4,3, 3,9, 4,7], "bio": "Landscaping & Garden Design\nDesign | Install | Maintain"},
             16: {"name": "Mahlaku", "verified": False, "ratings": [4,3.5, 3.6, 3.8]},
             17: {"name": "Malebo", "verified": True, "ratings": [4,3.5, 4.2, 4.8, 4.9, 3.8, 4, 3.9], "bio":"Laundry Services\nWash & Iron | Pickup & Delivery"},
-            18: {"name": "Zodwa(Kelly)", "verified": True, "ratings": []},
+            18: {"name": "Zodwa Nkuna", "verified": True, "ratings": []},
             19: {"name": "Auntie Nomusa", "verified": False, "ratings": [4,3.5, 4.2, 4.8, ]},
             20: {"name": "Kamogelo", "verified": True, "ratings": [4, 4.2, 4.8, 4.9, 3.8], "bio": "Fresh veggies | Delivery available"},
             21: {"name": "Nomthandazo S", "verified": False, "ratings": []},
@@ -138,7 +138,7 @@ class Offers:
                         },
             {"offer_id":4, "helper_id":4, "category": "tutoring",
             "title": "Gr4-9 Natural Science, R35/hr",
-            "mentorship": True
+            "mentorship": False
                         },
             {"offer_id":5, "helper_id":5, "category": "hair",
             "title": "Braids & cornrows, from R120",

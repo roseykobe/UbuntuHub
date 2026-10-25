@@ -69,16 +69,21 @@ def find_help(page: ft.Page, fhchat: fhchat, offers: Offers):
                 ft.Icon(icon=ft.Icons.VERIFIED, color=ft.Colors.BLUE, size=16)
             )
 
-        rating, count= offers.get_rating(offer["helper_id"])
-        if count==0:
-            #name_row.append(ft.Text("New", size= 12, color= ft.Colors.GREY_600))
-            rating_ctrl= ft.Text("New", size= 12, color= ft.Colors.GREY_600)
+        # Rating goes under the circle (star + number only, no count)
+        rating, count = offers.get_rating(offer["helper_id"])
+        if count == 0:
+            rating_ctrl = ft.Text("New", size=12, color=ft.Colors.GREY_600)
         else:
-            rating_ctrl= ft.Row(
-                [ft.Icon(icon= ft.Icons.STAR, color= ft.Colors.AMBER, size= 16),
-                ft.Text(f'{rating:.1f} ({count})', size= 12, color= ft.Colors.GREY_400)
-                ], spacing= 2, tight=True
-                )
+            rating_ctrl = ft.Row(
+                [
+                    ft.Icon(icon=ft.Icons.STAR, color=ft.Colors.AMBER, size=12),
+                    ft.Text(f"{rating:.1f}", size=11, color=ft.Colors.GREY_400),
+                ],
+                spacing=2,
+                tight=True,
+                alignment=ft.MainAxisAlignment.CENTER,
+                vertical_alignment= ft.CrossAxisAlignment.CENTER,
+            )
             
 
         # The offer (title already includes the price) + optional mentorship badge
@@ -116,23 +121,25 @@ def find_help(page: ft.Page, fhchat: fhchat, offers: Offers):
                 border_radius=12,
                 margin=ft.Margin.only(left=8, right=8, bottom=6),
                 content=ft.ListTile(
-                    leading=ft.CircleAvatar(
-                        radius=20,
-                        bgcolor=color,
-                        content=ft.Text(
-                            name[0].upper(),
-                            color=ft.Colors.WHITE,
-                            weight=ft.FontWeight.BOLD,
-                        ),
-                    ),
-                    #title=ft.Row(controls=name_row, spacing=6, vertical_alignment=ft.CrossAxisAlignment.CENTER),
-                    title= ft.Row(
-                        controls= [
-                            ft.Row(controls= name_row, spacing= 4, expand= True),
-                            rating_ctrl
+                    is_three_line=True,
+                    leading=ft.Column(
+                        controls=[
+                            ft.CircleAvatar(
+                                radius=20,
+                                bgcolor=color,
+                                content=ft.Text(
+                                    name[0].upper(),
+                                    color=ft.Colors.WHITE,
+                                    weight=ft.FontWeight.BOLD,
+                                ),
+                            ),
+                            rating_ctrl,
                         ],
-                        vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                        spacing=2,
+                        tight=True,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     ),
+                    title=ft.Row(controls=name_row, spacing=4),
                     subtitle=ft.Column(controls=details, spacing=4, tight=True),
                     trailing=ft.Icon(icon= ft.Icons.DELETE_OUTLINE if demo_user else ft.Icons.CHEVRON_RIGHT, color=ft.Colors.RED_300 if demo_user else ft.Colors.GREY_500),
                 ),

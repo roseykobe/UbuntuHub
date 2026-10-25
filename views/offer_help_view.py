@@ -198,7 +198,7 @@ def get_paid (page: ft.Page, offers: Offers):
         )
 
     
-    def make_tile(icon, color, title, subt, items,  expanded=False):
+    def make_tile(icon, color, title, subt, items, expanded=False):
         return ft.Container(
             margin=ft.Margin.symmetric(horizontal=12, vertical=6),
             border_radius=16,
@@ -207,6 +207,7 @@ def get_paid (page: ft.Page, offers: Offers):
             clip_behavior=ft.ClipBehavior.ANTI_ALIAS,
             content=ft.ExpansionTile(
                 expanded=expanded,
+                on_change=lambda e: on_tile_toggle(e, title),
                 bgcolor=ft.Colors.TRANSPARENT,
                 collapsed_bgcolor=ft.Colors.TRANSPARENT,
                 title=ft.Row(
@@ -272,6 +273,89 @@ def get_paid (page: ft.Page, offers: Offers):
         (ft.Icons.MUSIC_NOTE, ft.Colors.PURPLE_300, "Music & Arts", "f"),
     ]
 
+    # ---------- Search: the two big tiles + what gets searched ----------
+    tile_data = [
+        (ft.Icons.WORK, ft.Colors.BLUE_50, "Offer Paid Services",
+         "Get paid for your skills/products.", paid_services),
+        (ft.Icons.HANDSHAKE, ft.Colors.ORANGE_200, "Offer for Free",
+         "Give away items/services for free.", free_services),
+    ]
+
+    # "open" remembers which big tiles are expanded
+    search_state = {"query": "", "open": set()}
+
+    def build_tiles():
+        q = search_state["query"].strip().lower()
+        tiles = []
+        for icon, color, title, subt, items in tile_data:
+            # it[2] is the text on the list tile (e.g. "Tutoring")
+            shown = [it for it in items if q in it[2].lower()]
+            if not shown:
+                continue
+            tiles.append(
+                make_tile(
+                    icon, color, title, subt, shown,
+                    expanded=bool(q) or title in search_state["open"],
+                )
+            )
+        if not tiles:
+            tiles.append(
+                ft.Container(
+                    padding=30,
+                    content=ft.Text(
+                        "No results found",
+                        size=14,
+                        color=ft.Colors.GREY_600,
+                        text_align=ft.TextAlign.CENTER,
+                    ),
+                )
+            )
+        return tiles
+
+    # Shows the search bar when a tile is open, hides it when all are closed
+    def on_tile_toggle(e, title):
+        if str(e.data).lower() == "true":
+            search_state["open"].add(title)
+        else:
+            search_state["open"].discard(title)
+
+        search_box.visible = bool(search_state["open"])
+
+        if not search_state["open"] and search_state["query"]:
+            search_field.value = ""
+            search_state["query"] = ""
+            tiles_col.controls = build_tiles()
+
+        page.update()
+
+    def on_search(e):
+        search_state["query"] = search_field.value or ""
+        tiles_col.controls = build_tiles()
+        page.update()
+
+    search_field = ft.TextField(
+        hint_text="search e.g. tutoring",
+        prefix_icon=ft.Icons.SEARCH,
+        filled=True,
+        border=ft.InputBorder.NONE,
+        border_radius=12,
+        content_padding=10,
+        text_size=14,
+        on_change=on_search,
+    )
+
+    search_box = ft.Container(
+        visible=False,
+        padding=ft.Padding.symmetric(horizontal=16, vertical=4),
+        content=search_field,
+    )
+
+    tiles_col = ft.Column(
+        scroll=ft.ScrollMode.AUTO,
+        expand=True,
+        controls=build_tiles(),
+    )
+
     return ft.View(
         route="/GetPaid",
         padding=0,
@@ -294,19 +378,7 @@ def get_paid (page: ft.Page, offers: Offers):
                     ],
                 ),
             ),
-            ft.Column(
-                scroll=ft.ScrollMode.AUTO,
-                expand=True,
-                controls=[
-                    make_tile(
-                        ft.Icons.WORK, ft.Colors.BLUE_50, "Offer Paid Services", 'Get paid for your skills/products.', 
-                        paid_services, expanded=False,
-                    ),
-                    make_tile(
-                        ft.Icons.HANDSHAKE, ft.Colors.ORANGE_200, "Offer for Free", "Give away items/services for free.", 
-                        free_services,
-                    ),
-                ],
-            ),
+            search_box,   # <<< MOVE THIS LINE TO CHANGE THE SEARCH BAR POSITION
+            tiles_col,
         ],
-    )    
+    )
