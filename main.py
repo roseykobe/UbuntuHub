@@ -19,6 +19,7 @@ from business_logic.posts import Feed
 from business_logic.offers import Offers
 from views.profile_view import profile
 from views.profile_view1 import profile1
+from views.analytics_view import analytics
 
 
 
@@ -38,8 +39,7 @@ def main( page: ft.Page):
     def navigation_changed(e):
             index = e.control.selected_index
 
-            #if index== 0:
-                #page.navigate("/login")
+        
             if index == 0:
                 page.navigate("/home")
     
@@ -84,7 +84,7 @@ def main( page: ft.Page):
 
 
     
-        if page.route== "/home" :
+        if page.route== "/home" or page.route== "/":
             view= (home(page, request_preview, feed))
             view.navigation_bar= make_nav(0)
             page.views.append(view)
@@ -114,9 +114,13 @@ def main( page: ft.Page):
         elif page.route == "/profile1":
             view= profile1(page, feed, request_preview.profile_id)
             page.views.append(view)
-        elif page.route== "/login" or "/":
-            view= login(page)
+        elif page.route == "/analytics":
+            view= analytics(page, feed)
+            view.navigation_bar= make_nav(3)
             page.views.append(view)
+        #elif page.route== "/login" or "/":
+            #view= login(page)
+            #page.views.append(view)
         
 
         page.update()

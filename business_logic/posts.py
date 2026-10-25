@@ -2,6 +2,13 @@ from datetime import datetime, timedelta
 import flet as ft
 
 
+NEEDS = {
+    "Event & party hire": ["chair", "cooler", "gazebo", "marquee", "speaker"],
+    "Family care & check-ins": ["family member", "caregiver", "check-in", "check in", "wellness"],
+    "Neighbourhood safety": ["stranger", "walk with", "walk home", "unsafe", "suspicious"],
+}
+
+
 class Feed:
     def __init__(self):
 
@@ -154,7 +161,8 @@ class Feed:
             {
                 "id": 9,
                 "poster": 9,
-                "text": "Need help loading wood, I'll share some if you help",
+                #"text": "Need help loading wood, I'll share some if you help",
+                "text": "Can someone walk with my daughter home from the bus stop? It gets dark early now",
                 "time_stamp": datetime.now() - timedelta(days= 3),
                 "resolved": True
             },
@@ -179,6 +187,76 @@ class Feed:
                 "time_stamp": datetime.now() - timedelta(days= 5),
                 "resolved": False
                 
+            },
+                        {
+                "id": 13,
+                "poster": 2,
+                "text": "Looking for a gazebo or tent to hire for a family braai on Saturday",
+                "time_stamp": datetime.now() - timedelta(days= 9),
+                "resolved": True
+            },
+            {
+                "id": 14,
+                "poster": 5,
+                "text": "Need 30 chairs for a church function on Sunday, can anyone rent some out?",
+                "time_stamp": datetime.now() - timedelta(days= 12),
+                "resolved": True
+            },
+            {
+                "id": 15,
+                "poster": 8,
+                "text": "Anyone with a big cooler box for a birthday party? Will pay for the day",
+                "time_stamp": datetime.now() - timedelta(days= 18),
+                "resolved": False
+            },
+            {
+                "id": 16,
+                "poster": 6,
+                "text": "Need a caregiver for my gogo for a few hours in the mornings",
+                "time_stamp": datetime.now() - timedelta(days= 8),
+                "resolved": True
+            },
+            {
+                "id": 17,
+                "poster": 4,
+                "text": "Can someone do daily check-ins on an elderly neighbour? She lives alone",
+                "time_stamp": datetime.now() - timedelta(days= 10),
+                "resolved": True
+            },
+            {
+                "id": 18,
+                "poster": 9,
+                "text": "Wellness visit needed for my father while I'm away in Joburg, can anyone help?",
+                "time_stamp": datetime.now() - timedelta(days= 13),
+                "resolved": False
+            },
+            {
+                "id": 19,
+                "poster": 3,
+                "text": "A suspicious car has been parked outside the school every afternoon. Can we keep an eye out?",
+                "time_stamp": datetime.now() - timedelta(days= 7.5),
+                "resolved": True
+            },
+            {
+                "id": 20,
+                "poster": 7,
+                "text": "Street light is out and it feels unsafe at night near the taxi rank, can some of us walk home together?",
+                "time_stamp": datetime.now() - timedelta(days= 11),
+                "resolved": True
+            },
+            {
+                "id": 21,
+                "poster": 10,
+                "text": "Please can someone walk with my son to the clinic on Thursday morning?",
+                "time_stamp": datetime.now() - timedelta(days= 13),
+                "resolved": False
+            },
+            {
+                "id": 22,
+                "poster": 1,
+                "text": "Looking for a Grade 11 maths tutor for 2 afternoons a week",
+                "time_stamp": datetime.now() - timedelta(days= 19),
+                "resolved": True
             }
         ]
 
@@ -239,6 +317,48 @@ class Feed:
         if not ratings:
             return 0, 0
         return sum(ratings) / len(ratings), len(ratings)
+
+    def get_needs(self):
+        counts = {}
+        for post in self.posts + self.new_posts:
+            text = post["text"].lower()
+            for need, words in NEEDS.items():
+                if any(w in text for w in words):
+                    entry = counts.setdefault(need, {"need": need, "total": 0, "open": 0})
+                    entry["total"] += 1
+                    if not post.get("resolved", False):
+                        entry["open"] += 1
+                    break
+        needs = [n for n in counts.values() if n["total"] >= 2]
+        needs.sort(key=lambda n: n["total"], reverse=True)
+        return needs[:3]
+
+    def get_trends(self):
+        now = datetime.now()
+        trends = {}
+        for post in self.posts + self.new_posts:
+            text = post["text"].lower()
+            for need, words in NEEDS.items():
+                if any(w in text for w in words):
+                    t = trends.setdefault(need, {"two_weeks_ago": 0, "last_week": 0, "this_week": 0})
+                    age_days = (now - post["time_stamp"]).total_seconds() / 86400
+                    if age_days < 7:
+                        t["this_week"] += 1
+                    elif age_days < 14:
+                        t["last_week"] += 1
+                    elif age_days < 21:
+                        t["two_weeks_ago"] += 1
+                    break
+        for t in trends.values():
+            change = t["this_week"] - t["last_week"]
+            t["next_week"] = max(0, int(t["this_week"] + change / 2 + 0.5))
+            if change > 0:
+                t["tag"] = "growing"
+            elif change < 0:
+                t["tag"] = "slowing"
+            else:
+                t["tag"] = "steady"
+        return trends
 
     def get_reviews(self, helper_id):
             result = []

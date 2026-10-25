@@ -64,6 +64,7 @@ def post_form (page: ft.Page, feed: Feed):
         border_radius= 12,
         border_color= ft.Colors.ORANGE_300,
         focused_border_color= ft.Colors.ORANGE,
+        
         min_lines= 3,
         max_lines= 5,
     )
